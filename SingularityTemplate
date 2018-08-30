@@ -1,5 +1,5 @@
 BootStrap: shub
-From: bouthilx/flow:pytorch.0.4.1
+From: bouthilx/flow:pytorch.0.4.0
 
 %labels
    AUTHOR xavier.bouthillier@umontreal.ca
