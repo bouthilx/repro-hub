@@ -9,8 +9,8 @@ From: bouthilx/flow:pytorch.0.4.0
     echo "Fetching sgd-space"
     echo "------------------------------------------------------"
     cd /repos
-    git clone https://gitlab.com/bouthilx/sgd-attractor-dim.git
-    cd qtrack
+    git clone https://gitlab.com/bouthilx/sgd-space.git
+    cd sgd-space
         git fetch
         git checkout --track origin/dev
         git reset --hard !!COMMIT_HASH!!
