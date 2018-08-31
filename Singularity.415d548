@@ -20,7 +20,9 @@ From: bouthilx/flow:pytorch.0.4.0
     echo "------------------------------------------------------"
     echo "Installing sgd-space"
     echo "------------------------------------------------------"
+    echo "Installating setuptools v40.1.0"
     pip3 install setuptools>=v40.1.0
+    pip3 list
     pip3 install -e sgd-space
 
     echo "------------------------------------------------------"
