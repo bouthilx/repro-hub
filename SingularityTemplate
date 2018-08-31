@@ -20,7 +20,7 @@ From: bouthilx/flow:pytorch.0.4.0
     echo "------------------------------------------------------"
     echo "Installing sgd-space"
     echo "------------------------------------------------------"
-    pip3 install sgd-space
+    pip3 install sgd-space/
 
     echo "------------------------------------------------------"
     echo "Cleaning up"
