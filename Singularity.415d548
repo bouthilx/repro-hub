@@ -6,15 +6,9 @@ From: bouthilx/flow:pytorch.0.4.0
 
 %post
     echo "------------------------------------------------------"
-    echo "Fetching kleio prototype"
-    echo "------------------------------------------------------"
-    cd /repos
-    git clone https://github.com/Epistimio/kleio.git kleio.prototype
-
-    echo "------------------------------------------------------"
     echo "Installing kleio prototype"
     echo "------------------------------------------------------"
-    pip3 install -e kleio.prototype
+    pip3 install git+https://github.com/epistimio/kleio.git@prototype
 
     echo "------------------------------------------------------"
     echo "Fetching sgd-space"
