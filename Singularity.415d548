@@ -4,6 +4,9 @@ From: bouthilx/flow:pytorch.0.4.0
 %labels
    AUTHOR xavier.bouthillier@umontreal.ca
 
+% environment
+    SGD_SPACE_DATA_PATH=/data
+
 %post
     echo "------------------------------------------------------"
     echo "Installing kleio prototype"
