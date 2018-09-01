@@ -1,0 +1,31 @@
+BootStrap: shub
+From: bouthilx/flow:pytorch.0.4.0
+
+%labels
+   AUTHOR xavier.bouthillier@umontreal.ca
+
+%post
+    echo "------------------------------------------------------"
+    echo "Fetching sgd-space"
+    echo "------------------------------------------------------"
+    cd /repos
+    git clone https://gitlab.com/bouthilx/sgd-space.git
+    cd sgd-space
+        git fetch
+        git checkout --track origin/dev
+        git reset --hard 04ae095
+
+    cd ..
+
+    echo "------------------------------------------------------"
+    echo "Installing sgd-space"
+    echo "------------------------------------------------------"
+    pip3 install setuptools>=v40.1.0
+    pip3 install -e sgd-space
+
+    echo "------------------------------------------------------"
+    echo "Cleaning up"
+    echo "------------------------------------------------------"
+    apt-get clean
+    apt-get autoclean
+    rm -rf /var/lib/apt/lists/*
