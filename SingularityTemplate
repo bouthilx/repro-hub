@@ -1,19 +1,19 @@
 BootStrap: shub
-From: bouthilx/flow:pytorch.0.4.0
+From: bouthilx/flow:pytorch.1.0.0
 
 %labels
     AUTHOR xavier.bouthillier@umontreal.ca
 
 % environment
-    SGD_SPACE_DATA_PATH=/data
+    REPRO_DATA_PATH=/data
 
 %post
     echo "------------------------------------------------------"
-    echo "Fetching sgd-space"
+    echo "Fetching repro"
     echo "------------------------------------------------------"
     cd /repos
-    git clone https://gitlab.com/bouthilx/sgd-space.git
-    cd sgd-space
+    git clone https://gitlab.com/bouthilx/repro.git
+    cd repro
         git fetch
         git checkout --track origin/dev
         git reset --hard !!COMMIT_HASH!!
@@ -21,10 +21,10 @@ From: bouthilx/flow:pytorch.0.4.0
     cd ..
 
     echo "------------------------------------------------------"
-    echo "Installing sgd-space"
+    echo "Installing repro"
     echo "------------------------------------------------------"
     pip3 install 'setuptools>=v40.1.0'
-    pip3 install --process-dependency-links -e sgd-space[execute,configure,deploy]
+    pip3 install --process-dependency-links -e repro[execute,configure,deploy]
 
     echo "------------------------------------------------------"
     echo "Cleaning up"
