@@ -9,6 +9,22 @@ From: bouthilx/flow:pytorch.1.0.0
 
 %post
     echo "------------------------------------------------------"
+    echo "Installing Mahler"
+    echo "------------------------------------------------------"
+    pip3 install 'setuptools>=v40.1.0'
+    pip3 install git+https://github.com/bouthilx/mahler.git
+
+    echo "------------------------------------------------------"
+    echo "Installing Mahler MongoDB Registry"
+    echo "------------------------------------------------------"
+    pip3 install git+https://github.com/bouthilx/mahler.registry.mongodb.git
+
+    echo "------------------------------------------------------"
+    echo "Installing Mahler Flow Scheduler"
+    echo "------------------------------------------------------"
+    pip3 install git+https://github.com/bouthilx/mahler.scheduler.flow.git
+
+    echo "------------------------------------------------------"
     echo "Fetching repro"
     echo "------------------------------------------------------"
     cd /repos
@@ -23,7 +39,6 @@ From: bouthilx/flow:pytorch.1.0.0
     echo "------------------------------------------------------"
     echo "Installing repro"
     echo "------------------------------------------------------"
-    pip3 install 'setuptools>=v40.1.0'
     pip3 install --process-dependency-links -e repro[execute,configure,deploy]
 
     echo "------------------------------------------------------"
