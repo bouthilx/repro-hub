@@ -11,7 +11,7 @@ From: bouthilx/flow:pytorch.1.0.0
     echo "------------------------------------------------------"
     echo "Installing coco"
     echo "------------------------------------------------------"
-    pip install numpy scipy
+    pip3 install numpy scipy
     cd /repos
       git clone https://github.com/numbbo/coco.git
       cd coco
