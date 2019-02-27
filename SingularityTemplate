@@ -9,43 +9,32 @@ From: bouthilx/flow:pytorch.1.0.0
 
 %post
     echo "------------------------------------------------------"
-    echo "Installing Mahler"
+    echo "Installing coco"
     echo "------------------------------------------------------"
-    pip3 install 'setuptools>=v40.1.0'
-    pip3 install git+https://github.com/bouthilx/mahler.git
-
-    echo "------------------------------------------------------"
-    echo "Installing Mahler MongoDB Registry"
-    echo "------------------------------------------------------"
-    pip3 install git+https://github.com/bouthilx/mahler.registry.mongodb.git
-
-    echo "------------------------------------------------------"
-    echo "Installing Mahler Flow Scheduler"
-    echo "------------------------------------------------------"
-    pip3 install git+https://github.com/bouthilx/mahler.scheduler.flow.git
-
-    echo "------------------------------------------------------"
-    echo "Installing forked visdom"
-    echo "------------------------------------------------------"
-    pip3 install git+https://github.com/bouthilx/visdom.git
+    pip install numpy scipy
+    cd /repos
+      git clone https://github.com/numbbo/coco.git
+      cd coco
+          python do.py run-python
+      cd ..
 
     echo "------------------------------------------------------"
     echo "Fetching repro"
     echo "------------------------------------------------------"
     cd /repos
-    git clone https://gitlab.com/bouthilx/repro.git
-    cd repro
-        git fetch
-        git checkout --track origin/dev
-        git reset --hard !!COMMIT_HASH!!
+        git clone https://gitlab.com/bouthilx/repro.git
+        cd repro
+            git fetch
+            git checkout --track origin/dev
+            git reset --hard !!COMMIT_HASH!!
 
-    cd ..
+        cd ..
 
     echo "------------------------------------------------------"
     echo "Installing repro"
     echo "------------------------------------------------------"
     pip3 install 'setuptools>=v40.1.0'
-    pip3 install --process-dependency-links -e repro[execute,configure,deploy]
+    pip3 install --process-dependency-links -e repro[execute,coco,mini,deploy]
 
     echo "------------------------------------------------------"
     echo "Cleaning up"
