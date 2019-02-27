@@ -15,7 +15,7 @@ From: bouthilx/flow:pytorch.1.0.0
     cd /repos
       git clone https://github.com/numbbo/coco.git
       cd coco
-          python do.py run-python
+          python3.6 do.py run-python
       cd ..
 
     echo "------------------------------------------------------"
