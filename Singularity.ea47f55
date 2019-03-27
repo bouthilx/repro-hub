@@ -20,11 +20,6 @@ From: bouthilx/flow:pytorch.1.0.0
     pip3 install git+https://github.com/bouthilx/mahler.registry.mongodb.git
 
     echo "------------------------------------------------------"
-    echo "Installing Mahler Flow Scheduler"
-    echo "------------------------------------------------------"
-    pip3 install git+https://github.com/bouthilx/mahler.scheduler.flow.git
-
-    echo "------------------------------------------------------"
     echo "Installing forked visdom"
     echo "------------------------------------------------------"
     pip3 install git+https://github.com/bouthilx/visdom.git
