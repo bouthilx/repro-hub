@@ -1,0 +1,55 @@
+BootStrap: shub
+From: bouthilx/flow:pytorch.1.0.0
+
+%labels
+    AUTHOR xavier.bouthillier@umontreal.ca
+
+% environment
+    REPRO_DATA_PATH=/data
+
+%post
+    echo "------------------------------------------------------"
+    echo "Installing Mahler"
+    echo "------------------------------------------------------"
+    pip3 install 'setuptools>=v40.1.0'
+    pip3 install git+https://github.com/bouthilx/mahler.git
+
+    echo "------------------------------------------------------"
+    echo "Installing Mahler MongoDB Registry"
+    echo "------------------------------------------------------"
+    pip3 install git+https://github.com/bouthilx/mahler.registry.mongodb.git
+
+    echo "------------------------------------------------------"
+    echo "Installing Mahler Flow Scheduler"
+    echo "------------------------------------------------------"
+    pip3 install git+https://github.com/bouthilx/mahler.scheduler.flow.git
+
+    echo "------------------------------------------------------"
+    echo "Installing forked visdom"
+    echo "------------------------------------------------------"
+    pip3 install git+https://github.com/bouthilx/visdom.git
+ 
+    echo "------------------------------------------------------"
+    echo "Fetching repro"
+    echo "------------------------------------------------------"
+    cd /repos
+    git clone https://gitlab.com/bouthilx/repro.git
+    cd repro
+        git fetch
+        git checkout --track origin/dev
+        git reset --hard 66d28cd
+ 
+    cd ..
+
+    echo "------------------------------------------------------"
+    echo "Installing repro"
+    echo "------------------------------------------------------"
+    pip3 install 'setuptools>=v40.1.0'
+    pip3 install --process-dependency-links -e repro[execute,configure,deploy]
+
+    echo "------------------------------------------------------"
+    echo "Cleaning up"
+    echo "------------------------------------------------------"
+    apt-get clean
+    apt-get autoclean
+    rm -rf /var/lib/apt/lists/*
