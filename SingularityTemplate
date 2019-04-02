@@ -40,7 +40,7 @@ From: bouthilx/flow:pytorch.1.0.0
     echo "Installing repro"
     echo "------------------------------------------------------"
     pip3 install 'setuptools>=v40.1.0'
-    pip3 install --process-dependency-links -e repro[execute,configure,deploy]
+    pip3 install --process-dependency-links -e repro[execute,configure]
 
     echo "------------------------------------------------------"
     echo "Cleaning up"
